@@ -16,12 +16,29 @@ WEIGHT_BAG = path.join(WEIGHT,'BAG')
 WEIGHT_SHOES = path.join(WEIGHT,'SHOES')
 WEIGHT_TOP = path.join(WEIGHT,'TOP')
 
+# 실제 사용 할 Generator용 weight 디렉토리명 입력
+TRAINED_DATE = {
+    'BAG' : '2022-02-16_10-32',
+    'SHOES' : '2022-02-15_18-02',
+    'TOP' : '2022-02-15_14-57'
+}
+
+# 코드에서는 아래의 딕셔너리를 import 하여 사용
+# key 값으로 'BAG', 'SHOES', 'TOP' -> pt파일 경로 반환
+TRAINED_WEIGHT = {
+    k: path.join(*[WEIGHT, k, TRAINED_DATE[k], 'Pix2Pix_Generator_for_Tops.pt' ]) for k in TRAINED_DATE.keys()
+}
+
+
 # log 디렉토리
 LOG = path.join(BASE, 'LOG')
 LOG_BAG = path.join(LOG,'BAG')
 LOG_SHOES = path.join(LOG,'SHOES')
 LOG_TOP = path.join(LOG,'TOP')
 
+
+# 이미지 저장 디렉토리
+SAVED_IMG = path.join(BASE,'saved_img')
 
 # 몇 번의 배치(batch)마다 결과를 출력할 것인지 설정
 SAMPLE_INTERVAL = 200 
